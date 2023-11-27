@@ -17,19 +17,19 @@ const columns = 3
 // global variables ^
 
 const symbolsCount = {
-  "A" : 2,
-  "B" : 4,
-  "C" : 6,
-  "D" : 8
+  A : 2,
+  B : 4,
+  C : 6,
+  D : 8
 }
 
 //objects have key value pairs^
 
 const symbolValues = {
-  "A" : 5,
-  "B" : 4,
-  "C" : 3,
-  "D" : 2
+  A : 5,
+  B: 4,
+  C : 3,
+  D : 2
 }
 
 // this is the value of each symbol / the multiplier if user gets a line of A, B, C, or D^
@@ -83,6 +83,7 @@ const getBet = (balance, lines) => {
 
 const spin  = () => {
   const symbols = []
+  for()
 
 }
 
