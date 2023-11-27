@@ -39,16 +39,6 @@ const symbolValues = {
 
 
 
-
-
-
-
-
-
-
-
-
-
 const deposit = () => {
   while (true) {
     const depositAmount = prompt("Enter a deposit amount: ")
@@ -90,6 +80,13 @@ const getBet = (balance, lines) => {
     }
   }
 }
+
+const spin  = () => {
+  const symbols = []
+
+}
+
+// an array is what is known as a reference data type, manipulating whats inside of the array/ i.e symbols (elements will added to const symbols )
 
 
 let balance = deposit()
