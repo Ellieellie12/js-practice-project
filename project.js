@@ -83,13 +83,33 @@ const getBet = (balance, lines) => {
 
 const spin  = () => {
   const symbols = []
-  for()
+  for (const [symbol, count] of Object.entries(symbolsCount)) {
+    for (let i = 0; i < count; i++) {
+      symbols.push(symbol)
+    }
+  }
 
+  const reels = [[],[],[]]
+  //nested array, arrays inside of an array
+  for (let i = 0; i < columns; i++) {
+    const reelSymbols = [...symbols]
+    for (let j = 0; j < rows; j++) {
+      const randomIndex = Math.floor(Math.random() * reelSymbols.length)
+      const selectedSymbol = reelSymbols[randomIndex]
+      reels[i].push(selectedSymbol)
+      reelSymbols.splice(randomIndex, 1)
+
+    }
+  }
+  return reels
 }
+
+
 
 // an array is what is known as a reference data type, manipulating whats inside of the array/ i.e symbols (elements will added to const symbols )
 
-
+const reels = spin()
+console.log(reels)
 let balance = deposit()
 const numberOfLines = getNumberOfLines()
 const bet = getBet(balance, numberOfLines)
