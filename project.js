@@ -125,7 +125,7 @@ const printRows = (rows) => {
     let rowString = ""
     for (const [i, symbol] of row.entries()) {
       rowString += symbol
-      if (i != row.length -1) {
+      if (i != row.length - 1) {
         rowString += " | "
       }
     }
@@ -139,7 +139,7 @@ const numberOfLines = getNumberOfLines()
 const bet = getBet(balance, numberOfLines)
 const reels = spin()
 const rows = transpose(reels)
-// printRows(rows)
-console.log(reels)
-console.log(rows)
+// console.log(reels)
+// console.log(rows)
+printRows(rows)
 //calling the function(s)
