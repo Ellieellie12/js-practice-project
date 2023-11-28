@@ -27,7 +27,7 @@ const symbolsCount = {
 
 const symbolValues = {
   A : 5,
-  B: 4,
+  B:  4,
   C : 3,
   D : 2
 }
@@ -133,6 +133,25 @@ const printRows = (rows) => {
   }
 }
 
+const getWinnings = (rows, bet, lines) => {
+  let winnings = 0
+  for (let row= 0; row < lines; row++) {
+    const symbols = rows[row]
+    let allSame = true
+    for (const symbol of symbols) {
+      if (symbol != symbols[0]) {
+        allSame = false
+        break
+      }
+    }
+    if(allSame) {
+      winnings += bet * symbolValues[symbols[0]]
+    }
+  }
+  return winnings
+}
+
+
 
 let balance = deposit()
 const numberOfLines = getNumberOfLines()
@@ -142,4 +161,6 @@ const rows = transpose(reels)
 // console.log(reels)
 // console.log(rows)
 printRows(rows)
+const winnings = getWinnings(rows, bet, numberOfLines)
+console.log("You won, $" + winnings.toString())
 //calling the function(s)
