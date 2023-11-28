@@ -89,9 +89,10 @@ const spin  = () => {
     }
   }
 
-  const reels = [[],[],[]]
+  const reels = []
   //nested array, arrays inside of an array
   for (let i = 0; i < columns; i++) {
+    reels.push([])
     const reelSymbols = [...symbols]
     for (let j = 0; j < rows; j++) {
       const randomIndex = Math.floor(Math.random() * reelSymbols.length)
