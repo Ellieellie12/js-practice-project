@@ -105,13 +105,26 @@ const spin  = () => {
   return reels
 }
 
+const transpose = (reels) => {
+  const rowsMatrix = []
 
+  for (let i = 0; i < rows; i++) {
+    rowsMatrix.push([])
+    for (let j = 0; j < columns; j++){
+      rowsMatrix[i].push(reels[j][i])
+    }
+  }
+  return rowsMatrix
+}
 
 // an array is what is known as a reference data type, manipulating whats inside of the array/ i.e symbols (elements will added to const symbols )
 
-const reels = spin()
-console.log(reels)
+
 let balance = deposit()
 const numberOfLines = getNumberOfLines()
 const bet = getBet(balance, numberOfLines)
+const reels = spin()
+const rowsMatrix = transpose(reels)
+console.log(reels)
+console.log(rowsMatrix)
 //calling the function(s)
