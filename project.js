@@ -12,7 +12,7 @@ const prompt = require("prompt-sync")()
 
 
 
-const rows = 3
+const rowsMain = 3
 const columns = 3
 // global variables ^
 
@@ -94,7 +94,7 @@ const spin  = () => {
   for (let i = 0; i < columns; i++) {
     reels.push([])
     const reelSymbols = [...symbols]
-    for (let j = 0; j < rows; j++) {
+    for (let j = 0; j < rowsMain; j++) {
       const randomIndex = Math.floor(Math.random() * reelSymbols.length)
       const selectedSymbol = reelSymbols[randomIndex]
       reels[i].push(selectedSymbol)
@@ -105,26 +105,41 @@ const spin  = () => {
   return reels
 }
 
-const transpose = (reels) => {
-  const rowsMatrix = []
+// an array is what is known as a reference data type, manipulating whats inside of the array/ i.e symbols (elements will added to const symbols )
 
-  for (let i = 0; i < rows; i++) {
-    rowsMatrix.push([])
+const transpose = (reels) => {
+  const rows = []
+
+  for (let i = 0; i < rowsMain; i++) {
+    rows.push([])
     for (let j = 0; j < columns; j++){
-      rowsMatrix[i].push(reels[j][i])
+      rows[i].push(reels[j][i])
     }
   }
-  return rowsMatrix
+  return rows
 }
 
-// an array is what is known as a reference data type, manipulating whats inside of the array/ i.e symbols (elements will added to const symbols )
+
+const printRows = (rows) => {
+  for (const row of rows) {
+    let rowString = ""
+    for (const [i, symbol] of row.entries()) {
+      rowString += symbol
+      if (i != row.length -1) {
+        rowString += " | "
+      }
+    }
+    console.log(rowString)
+  }
+}
 
 
 let balance = deposit()
 const numberOfLines = getNumberOfLines()
 const bet = getBet(balance, numberOfLines)
 const reels = spin()
-const rowsMatrix = transpose(reels)
+const rows = transpose(reels)
+// printRows(rows)
 console.log(reels)
-console.log(rowsMatrix)
+console.log(rows)
 //calling the function(s)
