@@ -10,8 +10,6 @@
 const prompt = require("prompt-sync")()
 // imports go at the very top of the file
 
-
-
 const rowsMain = 3
 const columns = 3
 // global variables ^
@@ -33,11 +31,6 @@ const symbolValues = {
 }
 
 // this is the value of each symbol / the multiplier if user gets a line of A, B, C, or D^
-
-
-
-
-
 
 const deposit = () => {
   while (true) {
